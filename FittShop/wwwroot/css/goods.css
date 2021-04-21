@@ -1,0 +1,99 @@
+body {
+    background-color: #f2f3f4;
+}
+
+.main {
+    background-color: #f2f3f4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.mySwiper {
+    margin-top: 100px;
+    width: 50%;
+}
+
+aside {
+    margin-top: 120px;
+    width: 40%;
+}
+
+#title {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+#size, #price {
+    margin-bottom: 10px;
+}
+
+#dimensions {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.additional__info {
+    margin: 50px 0 51px 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.info {
+    text-align: center;
+    width: 80%;
+}
+
+.viber {
+    color: rgb(183, 0, 255);
+    text-decoration: none;
+}
+
+.viber:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    visibility: 0;
+    display: none;
+    opacity: 0;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .mySwiper {
+        width: 80%;
+    }
+    aside {
+        margin-top: 20px;
+        width: 80%;
+    }
+}
+
+@media (max-width: 767px) {
+    .mySwiper {
+        width: 80%;
+    }
+    aside {
+        margin-top: 20px;
+        width: 80%;
+    }
+}
+
+@media (max-width: 545px) {
+    #title {
+        font-size: 1.2rem;
+    }
+    #size {
+        font-size: 0.8rem;
+    }
+    #description {
+        font-size: 0.8rem;
+    }
+    p.info {
+        font-size: 0.7rem;
+    }
+    .mySwiper {
+        width: 90%;
+    }
+}

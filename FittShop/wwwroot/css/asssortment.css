@@ -1,0 +1,94 @@
+body {
+    background-color: #f2f3f4;
+}
+
+.assortment {
+    background-color: #f2f3f4;
+    display: flex;
+    flex-direction: column;
+}
+
+.assortment h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.all__assortment {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.goods {
+    width: 25%;
+    margin: 0 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.goods h3 {
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.goods p {
+    text-align: center;
+}
+
+.size {
+    transition: 0.4s;
+    color: #f2f3f4;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+}
+
+.goods:hover .size {
+    transition: 0.4s;
+    color: black;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+}
+
+.goods img {
+    width: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+    .goods h3,
+    .goods p {
+        font-size: 0.8rem;
+    }
+    .assortment h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .goods {
+        width: 40%;
+    }
+    .goods h3,
+    .goods p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 545px) {
+    .goods {
+        width: 80%;
+    }
+    .assortment h2 {
+        font-size: 1.5rem;
+    }
+}

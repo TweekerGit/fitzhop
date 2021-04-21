@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ProductDto>
+
+@if (Model.Any())
+{
+    <div class="items">
+        @foreach (ProductDto product in Model)
+        {
+            <div class="item">
+                <div class="photos">
+                    @foreach (string photoUrl in product.PhotoUrls)
+                    {
+                        <div><img src="@photoUrl" alt="wrong"></div>
+                    }
+                </div>
+                <div class="info">
+                    <h3>@product.Title</h3>
+                    <p><span>Опис: </span>@product.About</p>
+                    <p><span>Розміри: </span>@product.Sizes</p>
+                    <p><span>Ціна: </span>@product.Price</p>
+                    <div class="buttons">
+                        <a asp-area="Admin" asp-controller="Products" asp-action="One" asp-route-id="@product.Id" type="button">Змінити</a>
+                        <a asp-area="Admin" asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id" type="button">Видалити</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>   
+}
+
+@section addButton {
+    <div class="create--button"><a asp-controller="Products" asp-action="One" asp-route-id="" type="button">Добавити товар</a>
+        <a asp-controller="Categories" asp-action="All" type="button">Типи товарів</a></div>
+    
+}

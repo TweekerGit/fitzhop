@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @await Html.PartialAsync("AdminPartialCss")
+    <title>Document</title>
+</head>
+<body>
+<header>
+        <div class="header--main">
+            <div class="text"><h1>Тут ви можете змінити елементи сайту :)</h1></div>
+            @RenderSection("addButton", false)
+        </div>
+    </header>
+<div class="main">
+    @RenderBody()
+</div>
+<footer>
+    <div class="footer--content">
+        <div class="logout"><a asp-area="Admin" asp-controller="Account" asp-action="Logout">Вийти з акаунту</a></div>
+        <div class="footer--logo"><a asp-controller="Products" asp-action="All" asp-area=""><img src="~/images/MainLogoV3.0.png" alt="Logo"></a></div>
+    </div>
+</footer>
+</body>
+</html>

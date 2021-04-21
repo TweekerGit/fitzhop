@@ -1,0 +1,33 @@
+﻿@inject IRepository<int, Category> CategoriesRepository
+
+<header>
+    <div class="MLhref">
+        <a asp-controller="products">
+            <img class="mainLogo" src="~/images/MainLogoV3.0.png" alt="cheeseLogo">
+        </a>
+    </div>
+    <div class="nav">
+        <ul class="nav_bar">
+            <li class="list__to__show">
+                <div class="our_production_all">
+                    <div class="hover_to_show">
+                        <a asp-controller="products" class="our_production">Наша продукція</a>
+                        <ul class="nav_hidden">
+                            @foreach (Category category in await CategoriesRepository.GetAllAsync())
+                            {
+                                <li>
+                                    <a asp-controller="products" class="furniture--type">@category.Name</a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                    <span id="plusik">+</span>
+                </div>
+            </li>
+            <li>
+                <a asp-controller="info" asp-action="contacts">Контакти</a>
+            </li>
+        </ul>
+    </div>
+</header>

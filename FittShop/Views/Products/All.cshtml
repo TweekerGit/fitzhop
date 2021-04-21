@@ -1,0 +1,39 @@
+﻿@using FittShop.Models.Dto
+@model IEnumerable<FittShop.Models.Dto.ProductDto>
+
+<div class="presentation">
+    <h1 class="mainh1">Дерев'яні вироби на ваш смак</h1>
+    <p>
+        Табурети, столи, куточки, ліжка, тумбочки та інша продукція
+        <br>Все виготовляється під індивідуальні потреби клієнта
+    </p>
+</div>
+<div class="assortment">
+    <h2 id="zagolovok">Весь Асортимент</h2>
+    <div class="all__assortment" id="all__assortment">
+        @if (Model.Any())
+        {
+            @foreach (ProductDto product in Model)
+            {
+                <a asp-controller="Products" asp-action="One" asp-route-id="@product.Id">
+                    <div class="goods">
+                        <div>
+                            <img src="@product.PhotoUrls.FirstOrDefault()" alt="good">
+                        </div>
+                        <div class="article">
+                            <a asp-controller="Products" asp-action="One" asp-route-id="@product.Id">
+                                <h3>@product.Title</h3>
+                            </a>
+                            <p>Розміри: @product.Sizes</p>
+                            <p>Ціна: @product.Price</p>
+                        </div>
+                    </div>
+                </a>
+            }
+        }
+    </div>
+</div>
+
+@section Header {
+    <link rel="stylesheet" href="~/css/mainStyle.css" asp-append-version="true">
+}

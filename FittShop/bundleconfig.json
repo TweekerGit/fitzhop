@@ -1,0 +1,17 @@
+﻿[
+  {
+    "outputFileName": "wwwroot/js/scripts.min.js",
+    "inputFiles": [
+      "wwwroot/js/ajax-utils.js",
+      "wwwroot/js/slider.js",
+      "wwwroot/js/getData.js",
+      "wwwroot/js/goodsController.js",
+      "wwwroot/js/clicks.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]

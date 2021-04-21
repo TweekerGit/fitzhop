@@ -1,0 +1,14 @@
+﻿@model CategoryDto
+
+<div class="type--create">
+    <p>Введіть ім'я типу:</p>
+    <form asp-controller="Categories" asp-action="One" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id">
+        <input asp-for="Name">
+        <button type="submit">Готово</button>
+    </form>
+</div>
+
+@section addButton{
+    <div class="create--button"><a asp-controller="Categories" asp-action="All" type="button">Повернутися</a></div>
+}

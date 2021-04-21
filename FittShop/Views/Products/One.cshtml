@@ -1,0 +1,61 @@
+﻿@model FittShop.Models.Dto.ProductDto
+
+@section Header
+{
+    <link rel="stylesheet" href="~/css/slider.css">
+    <link rel="stylesheet" href="~/css/goods.css">
+}
+
+<div class="mySwiper">
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div id="swiper-wrapper" class="swiper-wrapper">
+            @foreach (string photoUrl in Model.PhotoUrls)
+            {
+                <div class="swiper-slide">
+                    <div class="swiper-zoom-container">
+                        <img id="goods_photo2" src="@photoUrl" alt=".!.">
+                    </div>
+                </div>
+            }
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-white"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+
+    </div>
+</div>
+<aside>
+    <article>
+        <h2 id="title">@Model.Title</h2>
+        <p id="price">Ціна: @Model.Price</p>
+        <p id="size">Розміри: @Model.Sizes</p>
+        <p id="description">Опис: @Model.About</p>
+    </article>
+</aside>
+<div class="additional__info">
+    <p class="info">Всі замовлення виготовляться під індивідуальні потреби клієнта. Можете скинути фотографії бажаного виробу у <a class="viber" href="viber://chat?number=%2B380965474290">вайбер</a>, і ми обговоримо всі деталі.</p>
+</div>
+
+
+@section Swiper {
+    <!-- Swiper JS -->
+    <script src="~/js/slider.js"></script>
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+            // effect: 'flip',
+            // loop: false,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+    
+        });
+    </script>
+}

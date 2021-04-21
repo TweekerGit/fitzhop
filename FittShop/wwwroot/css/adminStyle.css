@@ -1,0 +1,624 @@
+body {
+    background-color: #F2F3F4;
+}
+
+body header {
+    width: 100%;
+    height: auto;
+    background: -webkit-gradient(linear, left bottom, left top, from(white), to(#cac9c9));
+    background: linear-gradient(to top, white, #cac9c9);
+}
+
+body header .header--main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+body header .header--main .text {
+    width: 70%;
+}
+
+body header .header--main .text h1 {
+    margin-left: 50px;
+}
+
+body header .header--main .create--button {
+    width: 30%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+body header .header--main .create--button a {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    margin-right: 50px;
+    padding: 7px;
+    background-color: lightgray;
+    color: black;
+    text-decoration: none;
+}
+
+body header .header--main .create--button a:hover {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: gray;
+}
+
+body header h1 {
+    padding: 40px 0;
+}
+
+body footer {
+    margin-top: 10px;
+    border-top: 1px solid black;
+    background: -webkit-gradient(linear, left bottom, left top, from(#cac9c9), to(white));
+    background: linear-gradient(to top, #cac9c9, white);
+}
+
+body footer .footer--content {
+    padding: 20px 0;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+body footer .footer--content div {
+    width: 45%;
+}
+
+body footer .footer--content div img {
+    width: 250px;
+}
+
+body footer .footer--content .logout {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+body footer .footer--content .logout a {
+    padding: 7px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: lightgray;
+    font-family: Century Gothic;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+body footer .footer--content .logout a:hover {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: gray;
+}
+
+body footer .footer--content .footer--logo a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.card {
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+.card .photos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.card .photos div.photoel {
+    margin: 10px 0;
+    width: 45%;
+}
+
+.card .photos div.photoel label {
+    display: block;
+    margin: 5px 0;
+}
+
+.card .photos div.photoel div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card .element {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.card .element label {
+    display: block;
+    margin: 5px 0;
+}
+
+.card .card--info {
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.card .card--info .description {
+    width: 44%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.card .card--info .description label {
+    text-align: center;
+}
+
+.card .card--info .size--price--type {
+    width: 44%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.card .card--info .size--price--type .element {
+    width: 100%;
+}
+
+.card .card--info .size--price--type .element select {
+    font-size: 20px;
+    font-family: Century Gothic;
+    border: 0;
+    outline: 0;
+    background-color: lightgray;
+    height: 35px;
+    width: 100%;
+}
+
+.card .card--info .size--price--type .element select option {
+    outline: 0;
+    border: 0;
+}
+
+.card .card--info input {
+    width: 100%;
+}
+
+.card .buttons {
+    margin-top: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.card .buttons button {
+    display: block;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    border: 0;
+    background-color: lightgray;
+    font-size: 25px;
+    font-family: Century Gothic;
+    height: 35px;
+    outline: 0;
+    cursor: pointer;
+}
+
+.card .buttons button:hover {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: gray;
+}
+
+.card input {
+    font-size: 20px;
+    font-family: Century Gothic;
+    border: 0;
+    outline: 0;
+    background-color: lightgray;
+    width: 350px;
+    height: 35px;
+    margin: 5px 0;
+}
+
+.card textarea {
+    width: 100%;
+    height: 220px;
+    font-size: 20px;
+    font-family: Century Gothic;
+    border: 0;
+    outline: 0;
+    background-color: lightgray;
+    resize: none;
+}
+
+.items {
+    width: 90%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.items .item {
+    border: 6px dashed black;
+    margin: 15px 0;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.items .item .photos {
+    margin: 10px;
+    width: 40%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.items .item .photos div {
+    margin: 5px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 50%;
+}
+
+.items .item .photos div img {
+    text-align: center;
+    width: 95%;
+}
+
+.items .item .info {
+    width: 60%;
+}
+
+.items .item .info h3 {
+    margin-bottom: 10px;
+    font-weight: 1000;
+    font-size: 30px;
+}
+
+.items .item .info p {
+    margin: 15px 0;
+}
+
+.items .item .info p span {
+    font-weight: 600;
+    font-style: italic;
+}
+
+.items .item .buttons {
+    margin: 5px 0;
+}
+
+.items .item .buttons a {
+    padding: 3px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: lightgray;
+    font-family: Century Gothic;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.items .item .buttons a:hover {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: gray;
+}
+
+.admin--partial {
+    width: 25%;
+    padding: 20px 0;
+    margin: 15px auto;
+    text-align: center;
+    background-color: gray;
+}
+
+.admin--partial hr {
+    width: 75%;
+}
+
+.admin--partial h1 {
+    padding: 10px 0;
+    color: white;
+    font-weight: 700;
+}
+
+.admin--partial .admin--el {
+    color: white;
+    margin: 15px 0;
+}
+
+.admin--partial .admin--el label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.admin--partial .admin--el input {
+    border: 0;
+    outline: 0;
+    font-size: 25px;
+    padding: 3px;
+    font-family: Century Gothic;
+}
+
+.admin--partial .admin--el button {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    border: 0;
+    background-color: white;
+    font-size: 25px;
+    font-family: Century Gothic;
+    height: 35px;
+    outline: 0;
+    cursor: pointer;
+}
+
+.admin--partial .admin--el button:hover {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: lightgray;
+}
+
+.admin--partial .admin--remember {
+    color: white;
+    margin: 15px 0;
+}
+
+.admin--partial .admin--remember input {
+    width: 20px;
+    height: 20px;
+    border: 0;
+    outline: 0;
+}
+
+.types {
+    width: 70%;
+    margin: 25px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.types .types--block {
+    width: 45%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.types .types--block .types--title {
+    margin-bottom: 15px;
+}
+
+.types .types--block .types--title h3 {
+    text-align: center;
+    font-weight: 700;
+}
+
+.types .types--block .type {
+    background-color: gray;
+    margin: 10px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.types .types--block .type p {
+    width: 60%;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    margin: 10px;
+}
+
+.types .types--block .type a {
+    margin: 5px 0;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    margin-right: 50px;
+    padding: 7px;
+    background-color: lightgray;
+    color: black;
+    text-decoration: none;
+}
+
+.types .types--block .type a:hover {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: white;
+}
+
+.types .types--block .types--button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.types .types--block .types--button a {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    padding: 7px;
+    background-color: lightgray;
+    color: black;
+    text-decoration: none;
+}
+
+.types .types--block .types--button a:hover {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: white;
+}
+
+.type--create {
+    width: 30%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.type--create p {
+    font-weight: 700;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.type--create form {
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.type--create form input {
+    width: 100%;
+    display: block;
+    border: 0;
+    outline: 0;
+    font-size: 25px;
+    padding: 3px;
+    font-family: Century Gothic;
+    background-color: lightgray;
+}
+
+.type--create form button {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    border: 0;
+    background-color: lightgray;
+    font-size: 25px;
+    font-family: Century Gothic;
+    height: 35px;
+    outline: 0;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.type--create form button:hover {
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    background-color: gray;
+}
+/*# sourceMappingURL=adminAllStyle.css.map */

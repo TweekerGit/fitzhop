@@ -1,0 +1,85 @@
+﻿@model ProductDto
+
+<div class="card">
+    <form asp-controller="Categories" asp-action="One" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id">
+        <div asp-validation-summary="All"></div>
+        <div class="element">
+            <label asp-for="Title"></label>
+            <input asp-for="Title">
+            <span asp-validation-for="Title"></span>
+        </div>
+        <div class="photos">
+            @* <div class="photoel"> *@
+            @*     <label asp-for="EntityImage"></label> *@
+            @*     <input asp-for="@Model.Item.EntityImage"> *@
+            @*     <div> *@
+            @*         <img src="@Model.Item.EntityImage"/> *@
+            @*     </div> *@
+            @* </div> *@
+            @* <div class="photoel"> *@
+            @*     <label asp-for="@Model.Item.SecondImage"></label> *@
+            @*     <input asp-for="@Model.Item.SecondImage"> *@
+            @*     <div> *@
+            @*         <img src="@Model.Item.SecondImage"/> *@
+            @*     </div> *@
+            @* </div> *@
+            @* <div class="photoel"> *@
+            @*     <label asp-for="@Model.Item.ThirdImage"></label> *@
+            @*     <input asp-for="@Model.Item.ThirdImage"> *@
+            @*     <div> *@
+            @*         <img src="@Model.Item.ThirdImage"/> *@
+            @*     </div> *@
+            @* </div> *@
+            @* <div class="photoel"> *@
+            @*     <label asp-for="@Model.Item.FourthImage"></label> *@
+            @*     <input asp-for="@Model.Item.FourthImage"> *@
+            @*     <div> *@
+            @*         <img src="@Model.Item.FourthImage"/> *@
+            @*     </div> *@
+            @* </div> *@
+        </div>
+        <div class="card--info">
+            <div class="description">
+                <label asp-for="About"></label>
+                <textarea asp-for="About"></textarea>
+                <span asp-validation-for="About"></span>
+            </div>
+            <div class="size--price--type">
+                <div class="element">
+                    <label asp-for="Sizes"></label>
+                    <input asp-for="Sizes">
+                    <span asp-validation-for="Sizes"></span>
+                </div>
+                <div class="element">
+                    <label asp-for="Price"></label>
+                    <input asp-for="Price">
+                    <span asp-validation-for="Price"></span>
+                </div>
+                @* TODO: add category here by select/option tag *@
+                @* <div class="element"> *@
+                @*     <label asp-for="@Model.Item.Type"></label> *@
+                @*     <select asp-for="@Model.Item.Type"> *@
+                @*         @if (Model.FurnitureTypes.Any()) *@
+                @*         { *@
+                @*             @foreach (var type in Model.FurnitureTypes) *@
+                @*             { *@
+                @*                 <option>@type.Type</option> *@
+                @*             } *@
+                @*         } *@
+                @*     </select> *@
+                @*     <span asp-validation-for="@Model.Item.Type"></span> *@
+                @* </div> *@
+            </div>
+        </div>
+        <div class="buttons">
+            <button type="submit">Готово</button>
+        </div>
+    </form>
+</div>
+
+@section addButton{
+    <div class="create--button">
+        <a asp-controller="Categories" asp-action="One" type="button">Повернутися</a>
+    </div>
+}

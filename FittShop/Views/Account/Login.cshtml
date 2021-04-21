@@ -1,0 +1,34 @@
+﻿@model FittShop.Models.ViewModels.LoginModel
+
+<div class="admin--partial">
+    <h1>Вхід в панель керування</h1>
+    <hr>
+    <div>
+        <form asp-area="" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
+            <div asp-validator-summary="All"></div>
+            <div class="admin--el">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName"/>
+                <span asp-validator-for="UserName"></span>
+            </div>
+            <div class="admin--el">
+                <label asp-for="Password"></label>
+                <input asp-for="Password"/>
+                <span asp-validator-for="Password"></span>
+            </div>
+            <div class="admin--remember">
+                <label asp-for="Remember"></label>
+                <input type="checkbox" asp-for="Remember"/>
+                <span asp-validator-for="RememberMe"></span>
+            </div>
+            <div class="admin--el">
+                <button type="submit">Ввійти</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Header
+{
+    <link rel="stylesheet" href="~/css/logIn.css" asp-append-version="true">
+}

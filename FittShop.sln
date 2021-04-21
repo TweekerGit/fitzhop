@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FittShop.Data.Entities", "FittShop.Data.Entities\FittShop.Data.Entities.csproj", "{9970C05D-DA0A-45F6-97EE-C0A570465E96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FittShop", "FittShop\FittShop.csproj", "{ABAA2B7F-F817-463A-8146-EB45E19871D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FittShop.Data.SqlServer", "FittShop.Data.SqlServer\FittShop.Data.SqlServer.csproj", "{F4641841-31E4-4AE0-B208-73063DA5207E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FittShop.Data.Abstracts", "FittShop.Data.Abstracts\FittShop.Data.Abstracts.csproj", "{99CBD9FD-7361-45D5-89F7-B2FE66E9351C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9970C05D-DA0A-45F6-97EE-C0A570465E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9970C05D-DA0A-45F6-97EE-C0A570465E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9970C05D-DA0A-45F6-97EE-C0A570465E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9970C05D-DA0A-45F6-97EE-C0A570465E96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABAA2B7F-F817-463A-8146-EB45E19871D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABAA2B7F-F817-463A-8146-EB45E19871D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABAA2B7F-F817-463A-8146-EB45E19871D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABAA2B7F-F817-463A-8146-EB45E19871D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4641841-31E4-4AE0-B208-73063DA5207E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4641841-31E4-4AE0-B208-73063DA5207E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4641841-31E4-4AE0-B208-73063DA5207E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4641841-31E4-4AE0-B208-73063DA5207E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99CBD9FD-7361-45D5-89F7-B2FE66E9351C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99CBD9FD-7361-45D5-89F7-B2FE66E9351C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99CBD9FD-7361-45D5-89F7-B2FE66E9351C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99CBD9FD-7361-45D5-89F7-B2FE66E9351C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
