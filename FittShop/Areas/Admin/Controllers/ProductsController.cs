@@ -13,26 +13,32 @@ namespace FittShop.Areas.Admin.Controllers
     [Route("admin/[action]")]
     public class ProductsController : Controller
     {
-        private readonly IRepository<Product> repository;
+        private readonly IRepository<int, Product> productsRepository;
+        private readonly IRepository<int, Category> categoriesRepository;
 
-        public ProductsController(IRepository<Product> repository)
+        public ProductsController(IRepository<int, Product> productsRepository, IRepository<int, Category> categoriesRepository)
         {
-            this.repository = repository;
+            this.productsRepository = productsRepository;
+            this.categoriesRepository = categoriesRepository;
         }
 
         //Read Items
         [HttpGet]
         public async Task<IActionResult> All()
         {
-            IEnumerable<Product> data = await this.repository.GetAllAsync();
+            IEnumerable<Product> data = await this.productsRepository.GetAllAsync(p => p.Photos, p => p.Category);
+
+            foreach (Product product in data)
+                product.Category = await this.categoriesRepository.GetByIdAsync(product.CategoryId);
+
             return View(data.Select(p => new ProductDto(p)));
         }
-        
+
         //Create and Update Item
         [HttpGet("{id}")]
         public async Task<IActionResult> One(int id)
         {
-            Product data = await repository.GetByIdAsync(id);
+            Product data = await this.productsRepository.GetByIdAsync(id, p => p.Photos, p => p.Category);
             if (data is null) return this.NotFound(); // 404
 
             return View(new ProductDto(data));
@@ -44,8 +50,8 @@ namespace FittShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.repository.Create(product.ToEntity());
-                await this.repository.SaveAsync();
+                this.productsRepository.Create(product.ToEntity());
+                await this.productsRepository.SaveAsync();
                 return RedirectToAction("All");
             }
             return View(product);
@@ -55,8 +61,8 @@ namespace FittShop.Areas.Admin.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            this.repository.Delete(id);
-            await this.repository.SaveAsync();
+            this.productsRepository.Delete(id);
+            await this.productsRepository.SaveAsync();
             return RedirectToAction("All");
         }
     }

@@ -11,6 +11,8 @@ namespace FittShop.Data.SqlServer
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
+            // this.Configuration.LazyLoadingEnabled = false;
+            
             this.DataSets = new Dictionary<Type, object>
             {
                 [typeof(Category)] = Categories,

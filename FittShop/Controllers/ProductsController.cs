@@ -10,66 +10,73 @@ namespace FittShop.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly IRepository<int, Product> repository;
+        private readonly IRepository<int, Product> productsRepository;
+        private readonly IRepository<int, Category> categoriesRepository;
 
-        public ProductsController(IRepository<int, Product> repository) => this.repository = repository;
-
-
-        [HttpGet("{categoryId?}")]
-        public async Task<IActionResult> All(int? categoryId = null)
+        public ProductsController(IRepository<int, Product> productsRepository, IRepository<int, Category> categoriesRepository)
         {
-            IEnumerable<Product> data = categoryId is null
-                ? await repository.GetAllAsync()
-                : await repository.GetByFilterAsync(p => p.CategoryId == categoryId);
-
-            if (data is null) return this.NotFound(); // 404
-
-            return View(data.Select(e => new ProductDto(e)));
+            this.productsRepository = productsRepository;
+            this.categoriesRepository = categoriesRepository;
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> One([FromRoute] int id)
+
+        [HttpGet]
+        public async Task<IActionResult> All(int? categoryId = null)
         {
-            Product data = await repository.GetByIdAsync(id);
+            Category category = categoryId is null ? null : await this.categoriesRepository.GetByIdAsync(categoryId.Value);
+
+            IEnumerable<Product> data = categoryId is null
+                ? await this.productsRepository.GetAllAsync(p => p.Photos, p => p.Category)
+                : await this.productsRepository.GetByFilterAsync(p => p.CategoryId == categoryId, p => p.Photos, p => p.Category);
+
             if (data is null) return this.NotFound(); // 404
 
+            return View(data.Select(p => new ProductDto(p)));
+        }
+
+        [HttpGet("products/{id}")]
+        public async Task<IActionResult> One([FromRoute] int id)
+        {
+            Product data = await productsRepository.GetByIdAsync(id, p => p.Photos, p => p.Category);
+            if (data is null) return this.NotFound(); // 404
+            
             return View(new ProductDto(data));
         }
 
-        [HttpPost]
+        [HttpPost("products")]
         public async Task<StatusCodeResult> Create([FromBody] ProductDto product)
         {
             if (!ModelState.IsValid) return this.BadRequest();
             
             product.Id = null;
-            this.repository.Create(product.ToEntity());
-            await this.repository.SaveAsync();
+            this.productsRepository.Create(product.ToEntity());
+            await this.productsRepository.SaveAsync();
 
             return this.StatusCode(201); // Created
         }
 
-        [HttpPost]
+        [HttpPost("products")]
         public async Task<StatusCodeResult> Update([FromBody] ProductDto product)
         {
             if (!ModelState.IsValid) return this.BadRequest();
 
-            if (await this.repository.CountAsync(e => e.Id == product.Id) == 0)
+            if (await this.productsRepository.CountAsync(e => e.Id == product.Id) == 0)
                 return this.NotFound();
 
-            this.repository.Update(product.ToEntity());
-            await this.repository.SaveAsync();
+            this.productsRepository.Update(product.ToEntity());
+            await this.productsRepository.SaveAsync();
 
             return this.StatusCode(204); // No Content
         }
 
-        [HttpPost("{id}")]
+        [HttpPost("products/{id}")]
         public async Task<StatusCodeResult> Delete([FromRoute] int id)
         {
-            if (await this.repository.CountAsync(e => e.Id == id) == 0)
+            if (await this.productsRepository.CountAsync(e => e.Id == id) == 0)
                 return this.NotFound();
 
-            this.repository.Delete(id);
-            await this.repository.SaveAsync();
+            this.productsRepository.Delete(id);
+            await this.productsRepository.SaveAsync();
 
             return this.StatusCode(204); // No Content
         }

@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using FittShop.Data.Entities;
 using FittShop.Data.Entities.Core;
 
 namespace FittShop.Data.Abstracts
 {
-    public interface IRepository<in TKey, TEntity>
-        where TEntity : IEntity<TKey>
+    public interface IRepository<in TKey, TEntity> where TEntity : IEntity<TKey>
     {
-        Task<TEntity> GetByIdAsync(TKey id);
-        Task<IEnumerable<TEntity>> GetAllAsync();
-        Task<IEnumerable<TEntity>> GetByFilterAsync(Expression<Func<TEntity, bool>> filter);
+        Task<TEntity> GetByIdAsync(TKey id, params Expression<Func<TEntity, object>>[] includes);
+        Task<IEnumerable<TEntity>> GetAllAsync(params Expression<Func<TEntity, object>>[] includes);
+        Task<IEnumerable<TEntity>> GetByFilterAsync(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includes);
 
         Task<int> CountAsync();
         Task<int> CountAsync(Expression<Func<TEntity, bool>> filter);
@@ -25,8 +25,7 @@ namespace FittShop.Data.Abstracts
         Task SaveAsync();
     }
     
-    public interface IRepository<TEntity>
-        where TEntity : IEntity<int>
+    public interface IRepository<TEntity> where TEntity : IEntity<int>
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();

@@ -16,7 +16,7 @@
                             @foreach (Category category in await CategoriesRepository.GetAllAsync())
                             {
                                 <li>
-                                    <a asp-controller="products" class="furniture--type">@category.Name</a>
+                                    <a asp-controller="products" asp-route-categoryId="@category.Id" class="furniture--type">@category.Name</a>
                                 </li>
                             }
 
