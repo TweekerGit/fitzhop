@@ -34,11 +34,7 @@ namespace FittShop.Models.Dto
             this.Sizes = product.Sizes;
             this.Price = product.Price;
             this.Category = new CategoryDto(product.Category);
-            Console.WriteLine("======================================");
-            foreach (Photo photo in product.Photos) 
-                Console.WriteLine("PHOTO: " + photo.Url);
-            Console.WriteLine("======================================");
-            this.PhotoUrls = product.Photos.Select(p => p.Url);
+            this.PhotoUrls = product.Photos?.Select(p => p.Url);
         }
 
         public Product ToEntity()

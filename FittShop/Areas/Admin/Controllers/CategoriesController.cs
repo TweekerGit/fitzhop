@@ -9,12 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace FittShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("admin/[action]")]
     public class CategoriesController : Controller
     {
-        private readonly IRepository<Category> repository;
+        private readonly IRepository<int, Category> repository;
 
-        public CategoriesController(IRepository<Category> repository)
+        public CategoriesController(IRepository<int, Category> repository)
         {
             this.repository = repository;
         }
@@ -27,19 +26,26 @@ namespace FittShop.Areas.Admin.Controllers
             return View(data.Select(c => new CategoryDto(c)));
         }
 
-        //Create and Update Item
+        //Create Item
+        [HttpGet]
+        public IActionResult One()
+        {
+            return View(new CategoryDto());
+        }
+        
+        //Update Item
         [HttpGet("{id}")]
         public async Task<IActionResult> One(int id)
         {
             Category data = await repository.GetByIdAsync(id);
-            if (data is null) return this.NotFound(); // 404
+            if (data is null) return this.LocalRedirect("All"); // 404
 
             return View(new CategoryDto(data));
         }
 
         //Update in Form
         [HttpPost]
-        public async Task<IActionResult> One([FromBody] CategoryDto category)
+        public async Task<IActionResult> One([FromForm] CategoryDto category)
         {
             if (ModelState.IsValid)
             {

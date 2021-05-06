@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FittShop.Data.Abstracts;
@@ -10,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace FittShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("admin/[action]")]
     public class ProductsController : Controller
     {
         private readonly IRepository<int, Product> productsRepository;
@@ -46,7 +44,7 @@ namespace FittShop.Areas.Admin.Controllers
         
         //Update in Form
         [HttpPost]
-        public async Task<IActionResult> One([FromBody] ProductDto product)
+        public async Task<IActionResult> One([FromForm] ProductDto product)
         {
             if (ModelState.IsValid)
             {

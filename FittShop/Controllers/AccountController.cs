@@ -19,6 +19,7 @@ namespace FittShop.Controllers
             this.signInManager = signInManager;
         }
 
+        [HttpGet]
         [AllowAnonymous]
         public IActionResult Login(string returnUrl)
         {
@@ -26,9 +27,9 @@ namespace FittShop.Controllers
             return View(new LoginModel());
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         [AllowAnonymous]
-        public async Task<IActionResult> Login([FromBody] LoginModel model, string returnUrl)
+        public async Task<IActionResult> Login([FromForm] LoginModel model, string returnUrl)
         {
             if (!ModelState.IsValid) 
                 return View(model);

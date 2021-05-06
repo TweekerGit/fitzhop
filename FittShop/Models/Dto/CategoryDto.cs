@@ -12,6 +12,8 @@ namespace FittShop.Models.Dto
         public string Name { get; set; }
 
 
+        public CategoryDto() { }
+
         public CategoryDto(Category category)
         {
             this.Id = category.Id;

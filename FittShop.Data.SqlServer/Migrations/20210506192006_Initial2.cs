@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FittShop.Data.SqlServer.Migrations
 {
-    public partial class InitMyself : Migration
+    public partial class Initial2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -211,12 +211,12 @@ namespace FittShop.Data.SqlServer.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "44546e06-8719-4ad8-b88a-f271ae9d6eab", "de25d5f7-1141-474e-8c29-727e0ddbe798", "admin", "ADMIN" });
+                values: new object[] { "44546e06-8719-4ad8-b88a-f271ae9d6eab", "2fb3ddcf-0ba8-4f6e-b602-e6b8d658cace", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3b62472e-4f66-49fa-a20f-e7685b9565d8", 0, "e9e2af12-8180-464e-b105-1ec005c6da16", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEBEBRRcNDOOm793xSGZUcWIikLCda35d2mmna6tmC5e0J7QMh2M5upGGYNSA5TozwQ==", null, false, "", false, "admin" });
+                values: new object[] { "3b62472e-4f66-49fa-a20f-e7685b9565d8", 0, "f1d0f5c8-d389-4cdd-a0e4-70c87c2ce951", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEGXldWYRGSIAzFPbsLTUgaXVQgdOSuI9OQclewfBd70eGDVPCTXw0K0DQhQY9L0knQ==", null, false, "", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

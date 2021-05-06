@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FittShop.Data.SqlServer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210420192318_InitMyself")]
-    partial class InitMyself
+    [Migration("20210506192006_Initial2")]
+    partial class Initial2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -119,7 +119,7 @@ namespace FittShop.Data.SqlServer.Migrations
                         new
                         {
                             Id = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
-                            ConcurrencyStamp = "de25d5f7-1141-474e-8c29-727e0ddbe798",
+                            ConcurrencyStamp = "2fb3ddcf-0ba8-4f6e-b602-e6b8d658cace",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -218,13 +218,13 @@ namespace FittShop.Data.SqlServer.Migrations
                         {
                             Id = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e9e2af12-8180-464e-b105-1ec005c6da16",
+                            ConcurrencyStamp = "f1d0f5c8-d389-4cdd-a0e4-70c87c2ce951",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBEBRRcNDOOm793xSGZUcWIikLCda35d2mmna6tmC5e0J7QMh2M5upGGYNSA5TozwQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGXldWYRGSIAzFPbsLTUgaXVQgdOSuI9OQclewfBd70eGDVPCTXw0K0DQhQY9L0knQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,

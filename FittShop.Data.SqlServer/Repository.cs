@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
 using System.Threading.Tasks;
 using FittShop.Data.Abstracts;
-using FittShop.Data.Entities;
 using FittShop.Data.Entities.Core;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +18,7 @@ namespace FittShop.Data.SqlServer
 		public Repository(AppDbContext context)
 		{
 			this.context = context;
-			this.db = (DbSet<TEntity>) context.DataSets[typeof(TEntity)];
+			this.db = context.Set<TEntity>();
 		}
 
 		public async Task<TEntity> GetByIdAsync(TKey id, params Expression<Func<TEntity, object>>[] includes) => 
@@ -43,7 +41,7 @@ namespace FittShop.Data.SqlServer
 		public async Task SaveAsync() => await this.context.SaveChangesAsync();
 	}
 
-	public class Repository<TEntity> : Repository<int, TEntity> 
+	public class Repository<TEntity> : Repository<int, TEntity> , IRepository<int, TEntity>
 		where TEntity : class, IEntity<int>, new()
 	{
 		public Repository(AppDbContext context) : base(context) { }

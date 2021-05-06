@@ -44,7 +44,7 @@ namespace FittShop.Controllers
         }
 
         [HttpPost("products")]
-        public async Task<StatusCodeResult> Create([FromBody] ProductDto product)
+        public async Task<StatusCodeResult> Create([FromForm] ProductDto product)
         {
             if (!ModelState.IsValid) return this.BadRequest();
             
@@ -56,7 +56,7 @@ namespace FittShop.Controllers
         }
 
         [HttpPost("products")]
-        public async Task<StatusCodeResult> Update([FromBody] ProductDto product)
+        public async Task<StatusCodeResult> Update([FromForm] ProductDto product)
         {
             if (!ModelState.IsValid) return this.BadRequest();
 

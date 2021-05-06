@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using FittShop.Data.Entities;
+﻿using FittShop.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -12,20 +10,11 @@ namespace FittShop.Data.SqlServer
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             // this.Configuration.LazyLoadingEnabled = false;
-            
-            this.DataSets = new Dictionary<Type, object>
-            {
-                [typeof(Category)] = Categories,
-                [typeof(Product)] = Products,
-            };
         }
-
-        public IReadOnlyDictionary<Type, object> DataSets { get; }
-
+        
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
-
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // modelBuilder.Entity<IdentityUser>().Property(x => x.EmailConfirmed).HasDefaultValue(false);  
@@ -48,7 +37,7 @@ namespace FittShop.Data.SqlServer
                 Email = "my@email.com",
                 NormalizedEmail = "MY@EMAIL.COM",
                 EmailConfirmed = true,
-                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "superpassword"),
+                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(new IdentityUser("admin"), "superpassword"),
                 SecurityStamp = string.Empty
             });
 

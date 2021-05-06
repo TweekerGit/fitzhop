@@ -14,20 +14,25 @@ namespace FittShop
     public class Startup
     {
         private readonly IConfiguration configuration;
+        private readonly IWebHostEnvironment environment;
 
 
-        public Startup(IConfiguration configuration) => this.configuration = configuration;
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
+        {
+            this.configuration = configuration;
+            this.environment = environment;
+        }
 
         public void ConfigureServices(IServiceCollection services)
         {
             //Конфиг з appsettings.json
-            var config = new ProjectConfig();
+            ProjectConfig config = new();
             this.configuration.Bind("Project", config);
 
             //функціонал в якості сервісів
             services.AddSingleton(config);
+            // services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient(typeof(IRepository<,>), typeof(Repository<,>));
-            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
 
             //context з бд
             string connectionString = this.configuration.GetConnectionString(this.configuration["SelectedConnection"]);
@@ -75,9 +80,9 @@ namespace FittShop
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
+            if (this.environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -92,12 +97,15 @@ namespace FittShop
             
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapAreaControllerRoute(
+                    name: "admin",
+                    areaName: "Admin",
+                    pattern: "Admin/{controller}/{action=All}");
+                
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Products}/{action=All}/{id?}");
-                endpoints.MapControllerRoute(
-                    name: "admin",
-                    pattern: "{area:exists}/{controller=ServiceItems}/{action=Items}/{id?}");
+                
                 endpoints.MapRazorPages();
             });
         }
